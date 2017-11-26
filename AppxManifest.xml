@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Package IgnorableNamespaces="uap mp build" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:build="http://schemas.microsoft.com/developer/appx/2015/build">
+  <Identity Name="64081Zabnac.MapofWorld" Version="1.1.2.0" Publisher="CN=A5BB0187-FC91-4447-9896-60CE13BFEC8E" ProcessorArchitecture="neutral" />
+  <mp:PhoneIdentity PhoneProductId="ad2673f6-ab9f-426d-a253-f994a10112e3" PhonePublisherId="4902a8ac-d0e3-4586-b661-43cf237f2c35" />
+  <Properties>
+    <DisplayName>Map of World</DisplayName>
+    <PublisherDisplayName>Zabnac</PublisherDisplayName>
+    <Logo>images\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10240.0" MaxVersionTested="10.0.10586.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="EN-US" />
+    <Resource uap:Scale="200" />
+  </Resources>
+  <Applications>
+    <Application Id="App" StartPage="default.html">
+      <uap:VisualElements DisplayName="Map of World" Description="Contains maps of more than 200 countries and world maps with high resolution graphics." BackgroundColor="transparent" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png" ShortName="MoW" Square310x310Logo="images\Square310x310Logo.png" Square71x71Logo="images\Square71x71Logo.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square310x310Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="images\splashscreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+  <build:Metadata>
+    <build:Item Name="VisualStudio" Version="14.0" />
+    <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Enterprise 2015" />
+    <build:Item Name="OperatingSystem" Version="10.0.10586.0 (th2_release.151029-1700)" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="14.0.25424.0" />
+    <build:Item Name="ProjectGUID" Value="c21b0281-06ce-4c10-9bd8-c351a5c52afc" />
+    <build:Item Name="OptimizingToolset" Value="None" />
+    <build:Item Name="TargetRuntime" Value="AppHost" />
+    <build:Item Name="MakePri.exe" Version="10.0.10586.212 (th2_release_sec.160328-1908)" />
+  </build:Metadata>
+</Package>

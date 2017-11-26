@@ -1,0 +1,116 @@
+﻿.content,
+#app {
+    height: 100%;
+}
+
+    #app .win-splitviewpanetoggle {
+        float: left;
+    }
+
+    /* SplitView pane content style*/
+    #app .header {
+        white-space: nowrap;
+    }
+
+    #app .title {
+        font-size: 25px;
+        left: 50px;
+        margin-top: 6px;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    #app .nav-commands {
+        margin-top: 20px;
+    }
+
+.win-navbarcommand-button {
+    background-color: transparent;
+}
+
+#app .win-splitview-pane-hidden .win-navbarcommand-button {
+    width: 46px;
+}
+
+#app .win-splitview-pane-hidden .win-navbarcommand-label {
+    /* Workaround: Make sure pane doesn't scroll if ContentDialog restores focus to
+       NavBarCommand's label
+    */
+    visibility: hidden;
+}
+
+/*SplitView content style*/
+#app .win-splitview-content {
+    background-color: rgb(112,112,112);
+}
+
+#app .contentHost {
+    margin-left: 20px;
+    margin-top: 6px;
+    height:100%;
+	width: 100%;
+    overflow: auto;
+    zoom: 1;
+}
+
+/*::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}*/
+
+.land
+{
+	fill: #CCCCCC;
+	fill-opacity: 1;
+	stroke:white;
+	stroke-opacity: 1;
+	stroke-width:0.5;
+}
+.water
+{
+	fill: #42BFED;
+	fill-opacity: 1;
+	stroke:white;
+	stroke-opacity: 1;
+	stroke-width:0.5;
+}
+#choicesSpan{
+    display:none;
+}
+#selectedPlace{
+    display: none;
+}
+#pointedPlace{
+    display: none;
+}
+svg{
+    width: 100%;
+    height: 100%;
+}
+#settingsDiv{
+    display: none;
+}
+#listView{
+    max-height: 250px;
+}
+#creditLink{
+    right: 20px;
+    position: absolute;
+}
+/*.rTable { display: table; } .rTableRow { display: table-row; }
+.rTableCell, .rTableHead { display: table-cell; }*/
+h1, h2{
+    display:inline;
+}
+.topAppBar{
+    margin: 20px 10px;
+}
+b{
+    margin: 10px;
+}

@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+    <title>Map Of World</title>
+
+    <!-- WinJS references -->
+    <link href="WinJS/css/ui-dark.css" rel="stylesheet" />
+    <script src="WinJS/js/base.js"></script>
+    <script src="WinJS/js/ui.js"></script>
+    <script src="Scripts/jquery-3.1.0.min.js"></script>
+    <script src="Scripts/jquery-ui-1.12.0.js"></script>
+    <!-- MapOfWorld references -->
+    <link href="css/default.css" rel="stylesheet" />
+    <script src="js/default.js"></script>
+    <!--<script src="/js/map-js.js"></script>-->
+    <script src="js/svg-pan-zoom.min.js"></script>
+    <script src="js/hammer.js"></script>
+</head>
+<body role="application" class="win-type-body">
+    <div id="app">
+        <div class="splitView" data-win-control="WinJS.UI.SplitView" data-win-options="{
+            openedDisplayMode: 'inline',
+            closedDisplayMode: 'inline'
+         }">
+            <!-- Pane area -->
+            <div>
+                <div class="header">
+                    <button class="win-splitviewpanetoggle"
+                            data-win-control="WinJS.UI.SplitViewPaneToggle"
+                            data-win-options="{ splitView: select('.splitView') }"></button>
+                    <div class="title">Map of World</div>
+                </div>
+
+                <div class="nav-commands">
+                    <div data-win-control="WinJS.UI.SplitViewCommand" id="playButton" data-win-options="{ label: 'play', icon: 'play', oninvoked: mySplitView.playClicked}"></div>
+                    <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'find', icon: 'find', oninvoked: mySplitView.searchClicked}"></div>
+                    <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'zoom in', icon: 'zoomin', oninvoked: mySplitView.zoomInClicked}"></div>
+                    <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'zoom out', icon: 'zoomout', oninvoked: mySplitView.zoomOutClicked}"></div>
+                    <div data-win-control="WinJS.UI.SplitViewCommand" data-win-options="{ label: 'settings', icon: 'settings', oninvoked: mySplitView.settingsClicked}"></div>
+                    
+                </div>
+                
+            </div>
+
+            <!-- Content area -->
+            <div  id="settingsDiv">
+                <table>
+                    <tr>
+                        <th colspan="3"><h3>Settings</h3></th>
+                    </tr>
+                    <tr><th>Territories</th><th>All Maps</th><th>Stats</th></tr>
+                    <tr>
+                        <td>
+                            <div id="TerritoriesListView"
+                                 class="win-selectionstylefilled"
+                                 data-win-control="WinJS.UI.ListView"
+                                 data-win-options="{
+                        selectionMode: WinJS.UI.SelectionMode.single,
+                        tapBehavior: WinJS.UI.TapBehavior.directSelect,
+                        onselectionchanged : mySplitView.territoryItemClicked,
+                        layout: { type: WinJS.UI.ListLayout }
+                        }">
+                            </div>
+                        </td>
+                        <td>
+                            <div id="AllMapsListView"
+                                 class="win-selectionstylefilled"
+                                 data-win-control="WinJS.UI.ListView"
+                                 data-win-options="{
+                        itemDataSource:SearchUtils.allFileNames.dataSource,
+                        selectionMode: WinJS.UI.SelectionMode.single,
+                        tapBehavior: WinJS.UI.TapBehavior.directSelect,
+                        onselectionchanged : mySplitView.mapItemClicked,
+                        layout: { type: WinJS.UI.ListLayout }
+                        }">
+                            </div>
+                        </td>
+                        <td>
+                            <p>True answers:<b id="trueAnsTxt"> </b></p>
+                            <p>False answers:<b id="falseAnsTxt"> </b></p>
+                            <p>Total time spent:<b id="playTimeTxt"> </b></p>
+                            
+                        </td>
+                    </tr>
+                </table>
+            </div> 
+            
+            <table>
+                <tr>
+                    <td>
+                        <div class="search topAppBar"
+                             data-win-control="WinJS.UI.SearchBox"
+                             id="searchDiv"
+                             data-win-options="{
+                chooseSuggestionOnEnter: true,
+                focusOnKeyboardInput : true,
+                placeholderText: 'start typing anywhere',
+                searchHistoryDisabled: true,
+                onquerysubmitted:SearchUtils.selectionChosen,
+                onsuggestionsrequested:SearchUtils.suggestionsRequested }">
+                        </div>
+                    </td>
+                    <td>
+                        <span id="choicesSpan" class="topAppBar">
+                            <button class="win-button"></button>
+                            <button class="win-button"></button>
+                            <button class="win-button"></button>
+                            <button class="win-button"></button>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h1 class="win-h1 topAppBar" id="selectedPlace"></h1>
+                        <h2 class="win-h2 topAppBar" id="pointedPlace"></h2>
+                    </td>
+                    <td> <a id="creditLink" href="https://www.amcharts.com/"> Powered By AMCHARTS</a></td>
+                </tr>
+            </table>
+
+            <div class="contentHost" id="contentHost"></div>
+
+            </div>
+    </div>
+
+    <div data-win-control="WinJS.UI.ContentDialog" data-win-options="{
+             title: 'Must Select!',
+             primaryCommandText: 'OK',
+             }">
+        please select a suggested item from searchbox
+    </div>
+</body>
+</html>
