@@ -1,5 +1,5 @@
 {
-  "name": "map of world",
+  "name": "mapofworld",
   "version": "0.3.0",
   "description": "A simple map game for my mum's sake, Node.js app using Express 4",
   "engines": {
