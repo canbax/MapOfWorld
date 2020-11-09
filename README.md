@@ -1,7 +1,7 @@
 # MapOfWorld
 
-simple map game originally written for windows in JS. 
+Simple map game originally written for Windows 8 in JavaScript. 
 
-imported to web.
+Imported to web.
 
 deployed on https://canbax.github.io/MapOfWorld/
